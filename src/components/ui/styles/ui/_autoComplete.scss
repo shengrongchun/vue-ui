@@ -1,0 +1,84 @@
+.sc-autocomplete {
+    display: inline-block;
+    width: 180px;
+    position: relative;  
+    
+}
+
+
+.ac-autooptions {
+    z-index: 1000;
+    display: inline-block;
+    position: absolute;
+    background: $colorWhite;
+    width: 100%;
+    max-height: 280px;
+    overflow: auto;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.04), 0 2px 4px 0 rgba(0,0,0,0.12);
+    left: 0;
+    @include compatible(transform-origin,center top);
+    @include compatible(transform,scaleY(1));
+    @include compatible(transition,transform 0.2s);
+    
+    > ul {
+        margin: 5px 0;
+        position: relative;
+        
+        li {
+            padding: 0 10px;
+            list-style: none;
+            color: rgb(72, 87, 106);
+            margin: 0;
+            line-height: 36px;
+            cursor: pointer;
+            &.no-pointer {
+                cursor:auto;
+                text-align: center;
+                color: lighten(#999,15%);
+            }
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 14px;
+            
+            &:hover {
+                background: rgb(228, 232, 241);
+            }
+        } 
+
+        &.loading {
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+            color: lighten(#999,15%);
+        } 
+        
+    }
+
+    &.sc-height-none {
+        transform: scaleY(0);
+    }
+    &.option-bottom ,&.option- {
+        margin-top: 5px;
+    }
+    &.option-left {
+        top: 0;
+        left: -185px;     
+    }
+    &.option-right {
+        top: 0;
+        left: 185px;
+    }
+    &.option-top {
+        bottom: $input-height+5;
+        &.sc-size-lg {
+            bottom: $input-lg-height+5;
+        }
+        &.sc-size-sm {
+            bottom: $input-sm-height+5;
+        }
+        &.sc-size-mi {
+            bottom: $input-mi-height+5;
+        }        
+    }
+}

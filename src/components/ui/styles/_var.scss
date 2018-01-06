@@ -1,0 +1,167 @@
+$iconSize: 14px;
+$false: false !default;
+
+
+/*颜色*/
+$colorWhite: #fff;
+$colorBlack: #000;
+$primary-color: #20a0ff;
+$success-color: #13ce66;
+$danger-color: #ff4949;
+$warning-color: #f7ba2a;
+$info-color: #60c6df;
+
+
+/*button*/
+$button-default-border: darken($colorWhite,15%);
+$button-default-color: rgb(31, 45, 61);
+$button-default-bg: darken($colorWhite,10%);
+$button-default-fontSize: 14px;
+$button-default-padding: 10px 15px;
+$button-lg-padding: 11px 19px;
+$button-lg-fontsize: 16px;
+$button-sm-padding: 7px 9px;
+$button-sm-fontsize: 12px;
+$button-mi-padding: 4px;
+$button-mi-fontsize: 12px;
+
+$button-primary-color: $colorWhite;
+$button-primary-border: lighten(#20a0ff,15%);
+$button-primary-bg: #20a0ff;
+
+$button-success-color: $colorWhite;
+$button-success-border: lighten(#13ce66,15%);
+$button-success-bg: #13ce66;
+
+$button-warning-color: $colorWhite;
+$button-warning-border: lighten(#f7ba2a,15%);
+$button-warning-bg: #f7ba2a;
+
+$button-danger-color: $colorWhite;
+$button-danger-border: lighten(#ff4949,15%);
+$button-danger-bg: #ff4949;
+
+$button-info-color: $colorWhite;
+$button-info-border: lighten(#60c6df,15%);
+$button-info-bg: #60c6df;
+
+/*radio*/
+$radio-fontsize: 14px;
+$radio-checked-border: #20a0ff;
+$radio-checked-bg: $radio-checked-border;
+
+$radio-disabled-border: rgb(209, 219, 229);
+$radio-disabled-bg: rgb(238, 241, 246);
+
+/*checkbox*/
+$checkbox-color: rgb(31, 45, 61);
+$checkbox-fontsize: 14px;
+$checkbox-bg: $colorWhite;
+$checkbox-border: rgb(191, 203, 217);
+$checkbox-border-radius: 4px;
+
+$checkbox-check-bg: #20a0ff;
+$checkbox-check-border: rgb(1, 144, 254);
+
+$checkbox-disabled-bg: rgb(238, 241, 246);
+$checkbox-disabled-border: rgb(209, 219, 229);
+
+/*input*/
+$input-fontsize: 14px;
+$input-bg: $colorWhite;
+$input-border-radius: 4px;
+$input-border-color: rgb(191, 203, 217);
+$input-color: rgb(31, 45, 61);
+$input-height: 36px;
+$input-placeholder-color: lighten(#000,60%);
+$input-focus-border-color: #20a0ff;
+$input-hover-border-color: lighten(#20a0ff,20%);
+
+$input-disabled-bg: rgb(238, 241, 246);
+$input-disabled-border-color: rgb(209, 219, 229);
+$input-disabled-color: #bbb;
+$input-disabled-placeholder-color: lighten(#bbb,10%);
+
+$input-lg-height: 42px;
+$input-sm-height: 30px;
+$input-mi-height: 22px;
+
+$textarea-width: 414px;
+$textarea-min-height: 54px;
+
+$input-group-bg: rgb(251, 253, 255);
+
+
+/*tooltip*/
+$tip-border-color: #d9d9d9;
+$tip-bg-color: $colorWhite;
+$tip-color: #1f2d3d;
+
+$tip-dark-border-color: #1f2d3d;
+$tip-dark-bg-color: #1f2d3d;
+$tip-dark-color: $colorWhite;
+
+/*slider*/
+$slider-border-radius: 3px;
+$slider-bg-color: rgb(228, 232, 241);
+$slider-bg-content-color: #20a0ff;
+$slider-height: 4px;
+$slider-scroll-height: 15px;
+$slider-dis-bg-color: rgb(191, 203, 217);
+$slider-scroll-top: calc(#{$slider-height/2 - #{$slider-scroll-height/2}});
+$slider-vertical-height: 200px;
+
+/*modal*/
+$modal-bg-color: rgba(0, 0, 0, 0.5);
+$modal-main-box-shadow: 0 20px 60px -2px rgba(27, 33, 58, .4);
+$modal-close-icon-color: #999;
+$modal-close-icon-hover-color: #0079d3;
+$modal-header-color: #000;
+$modal-content-color: rgb(72, 87, 106);
+
+/*alert*/
+$alert-modal-primary-color: #20a0ff;
+$alert-modal-warning-color: #f7ba2a;
+$alert-modal-danger-color: #ff4949;
+$alert-modal-info-color: #60c6df;
+$alert-modal-success-color: #13ce66;
+$alert-modal-prompt-color: #20a0ff;
+
+/*notification*/
+$notification-primary-color: #20a0ff;
+$notification-warning-color: #f7ba2a;
+$notification-danger-color: #ff4949;
+$notification-info-color: #60c6df;
+$notification-success-color: #13ce66;
+
+$notification-box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+$notification-content-border-top-color: rgba(255,255,255,0.5);
+
+/*breadcrumb*/
+$breadcrumb-color: rgb(191, 203, 217);
+
+/*steps*/
+$steps-default-color: rgb(191, 203, 217);
+$steps-default-border: rgb(191, 203, 217);
+$steps-default-line-bg: rgb(191, 203, 217);
+$steps-default-line-color: #20a0ff;
+
+$steps-active-color: $colorWhite;
+$steps-active-bg: rgb(191, 203, 217);
+$steps-active-title: rgb(72, 87, 106);
+$steps-active-des: rgb(131, 145, 165);
+
+$steps-primary-bg: #20a0ff;
+$steps-primary-border: #20a0ff;
+$steps-primary-des: #20a0ff;
+$steps-primary-title: #20a0ff;
+
+$steps-success-bg: #13ce66;
+$steps-success-border: #13ce66;
+$steps-success-des: #13ce66;
+$steps-success-title: #13ce66;
+$steps-success-line: #13ce66;
+
+/*collapse*/
+$collapse-border-color: rgb(223, 230, 236);
+$collapse-content-bg: rgb(251, 253, 255); 

@@ -1,0 +1,81 @@
+
+@mixin transform($deg) {
+    transform: $deg;
+    -ms-transform: $deg; /* Internet Explorer */
+    -moz-transform: $deg; /* Firefox */
+    -webkit-transform: $deg; /* Safari 和 Chrome */
+    -o-transform: $deg; /* Opera */
+}
+.sc-tooltip {
+    z-index: 999;
+    display: inline-block;
+    position: absolute;
+    padding: 6px 8px;
+    margin: 0;
+    max-width: 400px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid $tip-border-color;
+    border-radius: 4px;
+    background: $tip-bg-color;
+    color: $tip-color;
+    &.transition{transition: opacity 0.5s;}
+    
+    /*title*/
+    .title {
+        margin-bottom: 5px;
+        font-size: 16px;
+    }
+    /*arrow*/
+    .arrowCommon {
+        display: inline-block;
+        position: absolute;
+        width: 0px;
+        height: 0px;
+    }
+    .arrow {
+        @include transform(translate(-50%,0));
+        @extend .arrowCommon;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: inherit; 
+    }
+    .arrow::after {
+        @include transform(translate(-50%,-50%));
+        @extend .arrowCommon;
+        content: '';
+        border: inherit;
+        border-top-color: $tip-bg-color;
+        top: -2px;
+    }
+    &.dark {
+        background: $tip-dark-bg-color;
+        color: $tip-dark-color; 
+        border-color: $tip-dark-border-color;
+        .arrow::after {
+            border-top-color: $tip-dark-bg-color;
+        }
+    }
+    /*right*/
+    &.right {
+        .arrow {
+            @include transform(rotate(90deg) translate(-50%,0));
+        }
+    }
+    /*left*/
+    &.left {
+        .arrow {
+            @include transform(rotate(-90deg) translate(50%,0));
+            
+        }
+    }
+    /*bottom*/
+    &.bottom {
+        .arrow {
+            @include transform(rotate(180deg) translate(50%,0));
+            
+        }
+    }
+
+}

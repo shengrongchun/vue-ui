@@ -1,0 +1,67 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1;
+}
+
+a {
+    text-decoration: none;
+    user-select: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+    font-weight: normal;
+    
+    tr {
+        height: 48px;
+        color: rgba(0,0,0,.87);
+        text-align: left;
+    }
+
+    th,td {
+        padding: 0 24px;
+    }
+
+    thead {
+        tr {
+            height: 50px;
+        }
+        border-bottom: 1px solid #E0E6ED;
+    }
+
+    tbody {
+        tr {
+            height: 56px;
+            border-bottom: 1px solid #E0E6ED;
+        }
+    }
+
+}
+/*清除浮动*/
+.clear {clear: both;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+
+/*常用类*/
+.margin5 {
+    margin: 5px;
+}
+.margin25 {
+    margin: 25px;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}

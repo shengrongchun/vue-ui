@@ -1,0 +1,45 @@
+.sc-modal .main-modal {
+    .modal-content {
+        .alert {
+            display:inline-block;
+            margin: 0;
+            padding: 0;
+            
+            i {
+                font-size: 36px;
+                position: absolute;
+                top: 50%;
+                @include compatible(transform,translateY(-50%))
+            }
+
+            span {
+                font-size: 14px;
+                color: rgb(72, 87, 106);
+                margin-left: 50px;
+            }
+            
+            .sc-input {
+                vertical-align: middle;
+                width: auto;
+            }
+
+            //primary #f7ba2a
+            &.primary {i {color:$alert-modal-primary-color}}
+            //warning 
+            &.warning {i {color:$alert-modal-warning-color}}
+            //danger 
+            &.danger {i {color:$alert-modal-danger-color}}
+            &.info {i {color:$alert-modal-info-color}}
+            &.success {i {color:$alert-modal-success-color}}
+            &.prompt {
+                margin: -15px 0;
+                i {
+                    color:$alert-modal-prompt-color;
+                    font-size: 30px;
+                }
+            }
+            
+
+        }
+    }
+}

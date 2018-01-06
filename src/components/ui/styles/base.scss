@@ -1,0 +1,76 @@
+//@import './font-awesome/scss/font-awesome.scss';/*字体样式*/
+@import 'var';/*相关变量*/
+
+@import './ui/animate';
+@import './ui/col';
+@import './ui/row';
+@import './ui/button';
+@import './ui/radio';
+@import './ui/checkbox';
+@import './ui/input';
+@import './ui/select';
+@import './ui/autoComplete';
+@import './ui/tooltip';
+@import './ui/switch';
+@import './ui/slider';
+@import './ui/upload';
+@import './ui/rate';
+@import './ui/transfer';
+@import './ui/modal';
+@import './ui/alert';
+@import './ui/notification';
+@import './ui/loading';
+@import './ui/breadcrumb';
+@import './ui/steps';
+@import './ui/tabs';
+@import './ui/collapse';
+@import './ui/carousel';
+@import './ui/navigation';
+@import './ui/badge';
+@import './ui/progress';
+@import './ui/pagination';
+@import './ui/dropdown';
+@import './ui/table';
+@import './ui/form';
+@import './ui/timePicker';
+@import './ui/datePicker';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+/*清除浮动*/
+.clear {clear: both;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+
+/*相关类*/
+.text-primary {
+    color: $button-primary-bg;
+}
+.text-success {
+    color: $button-success-bg;
+}
+.text-info {
+    color: $button-info-bg;
+}
+.text-danger {
+    color: $button-danger-bg;
+}
+.text-warning {
+    color: $button-warning-bg;
+}
+
+/**/
+.margin-left-5 {
+    margin-left: 5px;
+}
+.margin-top-5 {
+    margin-top: 5px;
+}
+.margin-right-5 {
+    margin-right: 5px;
+}
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}

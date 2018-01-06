@@ -1,0 +1,146 @@
+.sc-steps {
+    position: relative;
+    width: auto;
+    
+    & .sc-step {
+        display: inline-block;
+        float: left;
+        position: relative;
+        color: $steps-default-color;
+        
+        /*active*/
+        &.is-active {
+           .step-circle {
+                background: $steps-active-bg;
+                color: $steps-active-color;
+           }
+
+           .step-title {
+                color: $steps-active-title;
+           } 
+
+           .step-description {
+                color: $steps-active-des;
+            }
+        }
+        
+        /*primary*/
+        &.is-primary {
+           .step-circle {
+                background: $steps-primary-bg;
+                border-color: $steps-primary-border;
+                color: $colorWhite;
+           }
+
+           .step-title {
+                color: $steps-primary-title;
+           } 
+
+           .step-description {
+                color: $steps-primary-des;
+            }
+
+            .step-line {
+                .step-line-color {
+                    width: 50%;
+                }
+                //
+                .is-all {
+                    width: 100%;
+                }
+            }
+        }
+
+        /*success*/
+        &.is-success {
+           .step-circle {
+                background: $steps-success-bg;
+                color: $colorWhite;
+                border-color: $steps-success-border;
+                
+                .step-icon {
+                    display: inline-block;
+                }
+                span {
+                    display:none;
+                }
+            }
+
+            .step-title {
+                color: $steps-success-title;
+            } 
+
+            .step-description {
+                color: $steps-success-des;
+            }
+
+            .step-line {
+                
+                .step-line-color {
+                    width: 50%;
+                    background: $steps-success-line;
+                }
+                //
+                .is-all {
+                    width: 100%;
+                }
+            }
+        }
+
+        &:last-child {
+            .step-line {display:none;}
+        }
+        
+        .step-circle {
+            @include compatible(user-select,none);
+            display: inline-block;
+            text-align: center;
+            line-height: 28px;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            background: $colorWhite;
+            border:2px solid $steps-default-border;
+            border-radius: 50%;
+            
+            .step-icon {
+                display:none;
+            }
+        }
+
+        .step-line {
+            height: 2px;
+            background: $steps-default-line-bg;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 14px;
+            z-index: -1;
+            
+            .step-line-color {
+                background: $steps-default-line-color;
+                height: 100%;
+                position: absolute;
+                width: 0;
+                @include compatible(transition,0.5s);
+                
+                &.is-all {
+                    @include compatible(transition,none);
+                }
+            }
+            
+        }
+
+        .step-title {
+            padding: 5px 0;
+            font-weight: 600;
+        }
+
+        .step-description {
+            padding: 5px 0;
+            font-size: 12px;
+        }
+        
+    }
+
+}

@@ -1,0 +1,25 @@
+.sc-breadcrumb {
+    font-size: 13px;
+    display: inline-block;
+    
+    .sc-breadcrumb-item {
+        display: inline-block;
+        
+        &:last-child {
+            .breadcrumb-icon {
+                display: none;
+            }
+        }
+
+        & .link {
+            &:hover,&.is-active {
+                color: $breadcrumb-color;
+            }
+        }
+
+        .breadcrumb-icon {
+            margin: 0 8px;
+            color: $breadcrumb-color;
+        }
+    }
+}

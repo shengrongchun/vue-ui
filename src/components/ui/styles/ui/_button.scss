@@ -1,0 +1,269 @@
+@charset "UTF-8";
+
+@mixin activeColor($activeArray,$border,$bg,$color) {
+    @each $active in $activeArray {
+        @if ($active == 'focus') {
+           &.is-focus {
+                @if $border {border-color: $border;}
+                @if $bg {background-color: $bg;}
+                @if $color {color: $color;}
+            } 
+        }
+        &:#{$active} {
+            @if $border {border-color: $border;}
+            @if $bg {background-color: $bg;}
+            @if $color {color: $color;}
+        }
+    }
+}
+
+/*text*/
+@mixin button-text {
+    border: none;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*plain*/
+@mixin button-plain {
+    background: $colorWhite;
+}
+
+/*disabled*/
+@mixin is-disabled($border,$bg,$color) {
+    &.is-disabled, &.is-disabled:hover, &.is-disabled:focus {
+        @if $border {border-color: $border;}
+        @if $bg {background-color: $bg;}
+        @if $color {color: $color;}
+        cursor: not-allowed;
+        background-image: none;
+        z-index: 2;
+    } 
+}
+/*buttonGroup*/
+.sc-button-group,.sc-radio-group,.sc-checkbox-group {
+    display: inline-block;
+    border-radius: 4px;
+    vertical-align: middle;
+    background: rgba($colorWhite,0.1);
+    
+    & .sc-button {
+        float: left;
+        position: relative;
+        border-radius: 0;
+        &:not(:first-child) {
+            margin-left: -1px;
+        }
+        &:first-child {
+           border-radius: 4px 0 0 4px;
+        }
+        &:last-child {
+           border-radius: 0 4px 4px 0;
+        }
+        &:hover,&:focus,&.is-focus {
+            z-index: 3;
+        }    
+        
+    } 
+}
+
+
+
+/*button*/
+.sc-button, .sc-button-default {
+    user-select: none;
+    display: inline-block;
+    white-space: nowrap;
+    line-height: 1;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    outline: none;
+    margin: 0;
+    border-radius: 4px;
+    background: $button-default-bg;
+    border: 1px solid $button-default-border;
+    font-size: $button-default-fontSize;
+    padding: $button-default-padding;
+    color: $button-default-color;
+    
+    span {
+        margin: 0 2px;
+    }
+
+    i {
+        vertical-align: top;
+        font-size: inherit;
+    }
+    
+    @include activeColor('hover',darken($button-default-border,5%),darken($button-default-bg,5%),$false);
+    @include activeColor('focus',darken($button-default-border,10%),darken($button-default-bg,10%),$false);
+    @include is-disabled(lighten($button-default-border,5%),lighten($button-default-bg,5%),lighten($button-default-color,60%));
+    /*按钮大小*/
+    &[class *="sc-button-lg"] {
+        font-size: $button-lg-fontsize;
+        padding: $button-lg-padding;    
+    }
+    &[class *="sc-button-sm"] {
+        font-size: $button-sm-fontsize;
+        padding: $button-sm-padding;    
+    }
+    &[class *="sc-button-mi"] {
+        font-size: $button-mi-fontsize;
+        padding: $button-mi-padding;    
+    }
+
+    /*primary*/
+    &.sc-button-primary {
+        border-color: $button-primary-border;
+        background: $button-primary-bg;
+        color: $button-primary-color;
+        @include activeColor(['hover'],lighten($button-primary-border,10%),lighten($button-primary-bg,10%),$false);
+        @include activeColor(['focus'],darken($button-primary-border,15%),darken($button-primary-bg,15%),$false);
+        @include is-disabled(lighten($button-primary-border,12%),lighten($button-primary-bg,30%),$button-primary-color);
+    }
+    /*success*/
+    &.sc-button-success {
+        border-color: $button-success-border;
+        background: $button-success-bg;
+        color: $button-success-color;
+        @include activeColor(['hover'],lighten($button-success-border,10%),lighten($button-success-bg,10%),$false);
+        @include activeColor(['focus'],darken($button-success-border,15%),darken($button-success-bg,15%),$false);
+        @include is-disabled(lighten($button-success-border,20%),lighten($button-success-bg,35%),$button-success-color);
+    }
+    /*warning*/
+    &.sc-button-warning {
+        border-color: $button-warning-border;
+        background: $button-warning-bg;
+        color: $button-warning-color;
+        @include activeColor(['hover'],lighten($button-warning-border,10%),lighten($button-warning-bg,10%),$false);
+        @include activeColor(['focus'],darken($button-warning-border,15%),darken($button-warning-bg,15%),$false);
+        @include is-disabled(lighten($button-warning-border,15%),lighten($button-warning-bg,30%),$button-warning-color);
+    }
+    /*info*/
+    &.sc-button-info {
+        border-color: $button-info-border;
+        background: $button-info-bg;
+        color: $button-info-color;
+        @include activeColor(['hover'],lighten($button-info-border,10%),lighten($button-info-bg,10%),$false);
+        @include activeColor(['focus'],darken($button-info-border,20%),darken($button-info-bg,20%),$false);
+        @include is-disabled(lighten($button-info-border,15%),lighten($button-info-bg,28%),$button-info-color);
+    }
+    /*danger*/
+    &.sc-button-danger {
+        border-color: $button-danger-border;
+        background: $button-danger-bg;
+        color: $button-danger-color;
+        @include activeColor(['hover'],lighten($button-danger-border,10%),lighten($button-danger-bg,10%),$false);
+        @include activeColor(['focus'],darken($button-danger-border,20%),darken($button-danger-bg,20%),$false);
+        @include is-disabled(lighten($button-danger-border,15%),lighten($button-danger-bg,30%),$button-danger-color);
+    }
+
+ 
+    /*text default*/
+    &.sc-button-text {
+        color: darken($button-default-bg,15%);
+        @include button-text;
+        @include activeColor(['hover'],$false,$false,darken($button-default-bg,30%));
+        @include activeColor(['focus'],$false,$false,darken($button-default-bg,50%));
+        @include is-disabled(transparent,transparent,lighten($button-default-bg,5%));
+    }
+    /*text primary*/
+    &.sc-button-text-primary {
+        color: $button-primary-bg;
+        @include button-text;
+        @include activeColor(['hover'],$false,$false,lighten($button-primary-bg,10%));
+        @include activeColor(['focus'],$false,$false,darken($button-primary-bg,15%));
+        @include is-disabled(transparent,transparent,lighten($button-primary-bg,30%));
+    }
+    /*text success*/
+    &.sc-button-text-success {
+        color: $button-success-bg;
+        @include button-text;
+        @include activeColor(['hover'],$false,$false,lighten($button-success-bg,10%));
+        @include activeColor(['focus'],$false,$false,darken($button-success-bg,15%));
+        @include is-disabled(transparent,transparent,lighten($button-success-bg,35%));
+    }
+    /*text danger*/
+    &.sc-button-text-danger {
+        color: $button-danger-bg;
+        @include button-text;
+        @include activeColor(['hover'],$false,$false,lighten($button-danger-bg,10%));
+        @include activeColor(['focus'],$false,$false,darken($button-danger-bg,30%));
+        @include is-disabled(transparent,transparent,lighten($button-danger-bg,30%));
+    }
+    /*text warning*/
+    &.sc-button-text-warning {
+        color: $button-warning-bg;
+        @include button-text;
+        @include activeColor(['hover'],$false,$false,lighten($button-warning-bg,10%));
+        @include activeColor(['focus'],$false,$false,darken($button-warning-bg,15%));
+        @include is-disabled(transparent,transparent,lighten($button-warning-bg,30%));
+    }
+    /*text info*/
+    &.sc-button-text-info {
+        color: $button-info-bg;
+        @include button-text;
+        @include activeColor(['hover'],$false,$false,lighten($button-info-bg,10%));
+        @include activeColor(['focus'],$false,$false,darken($button-info-bg,25%));
+        @include is-disabled(transparent,transparent,lighten($button-info-bg,30%));
+    }
+    
+    /*plain default*/
+    &.sc-button-plain,&.sc-button-plain-default {
+        color: darken($button-default-border,25%);
+        @include button-plain;
+        @include activeColor(['hover'],lighten($button-default-border,5%),$false,lighten($button-default-color,50%));
+        @include activeColor(['focus'],darken($button-default-border,15%),$false,darken($button-default-color,50%));
+        @include is-disabled(lighten($button-default-border,0%),$colorWhite,lighten($button-default-color,70%));
+    }
+    /*plain primary*/
+    &.sc-button-plain-primary {
+        color: $button-primary-bg;
+        border-color: $button-primary-bg;
+        @include button-plain;
+        @include activeColor(['hover'],lighten($button-primary-bg,10%),$false,lighten($button-primary-bg,10%));
+        @include activeColor(['focus'],darken($button-primary-bg,15%),$false,darken($button-primary-bg,15%));
+        @include is-disabled(lighten($button-primary-bg,32%),$colorWhite,lighten($button-primary-bg,32%));
+    }
+    /*plain success*/
+    &.sc-button-plain-success {
+        color: $button-success-bg;
+        border-color: $button-success-bg;
+        @include button-plain;
+        @include activeColor(['hover'],lighten($button-success-bg,10%),$false,lighten($button-success-bg,10%));
+        @include activeColor(['focus'],darken($button-success-bg,15%),$false,darken($button-success-bg,15%));
+        @include is-disabled(lighten($button-success-bg,40%),$colorWhite,lighten($button-success-bg,40%));
+    }
+    /*plain danger*/
+    &.sc-button-plain-danger {
+        color: $button-danger-bg;
+        border-color: $button-danger-bg;
+        @include button-plain;
+        @include activeColor(['hover'],lighten($button-danger-bg,10%),$false,lighten($button-danger-bg,10%));
+        @include activeColor(['focus'],darken($button-danger-bg,30%),$false,darken($button-danger-bg,30%));
+        @include is-disabled(lighten($button-danger-bg,30%),$colorWhite,lighten($button-danger-bg,30%));
+    }
+    /*plain warning*/
+    &.sc-button-plain-warning {
+        color: $button-warning-bg;
+        border-color: $button-warning-bg;
+        @include button-plain;
+        @include activeColor(['hover'],lighten($button-warning-bg,10%),$false,lighten($button-warning-bg,10%));
+        @include activeColor(['focus'],darken($button-warning-bg,20%),$false,darken($button-warning-bg,20%));
+        @include is-disabled(lighten($button-warning-bg,30%),$colorWhite,lighten($button-warning-bg,30%));
+    }
+    /*plain info*/
+    &.sc-button-plain-info {
+        color: $button-info-bg;
+        border-color: $button-info-bg;
+        @include button-plain;
+        @include activeColor(['hover'],lighten($button-info-bg,10%),$false,lighten($button-info-bg,10%));
+        @include activeColor(['focus'],darken($button-info-bg,20%),$false,darken($button-info-bg,20%));
+        @include is-disabled(lighten($button-info-bg,30%),$colorWhite,lighten($button-info-bg,30%));
+    }
+
+
+}

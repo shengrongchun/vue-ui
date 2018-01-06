@@ -1,0 +1,68 @@
+.sc-transfer {
+    display: inline-block;
+    vertical-align: middle;
+    .transfer-panel {
+        display: inline-block;
+        box-sizing: border-box;
+        vertical-align: middle;
+        background: $colorWhite;
+        border: 1px solid rgb(209, 219, 229);
+        border-radius: 2px;
+        width: 200px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+        
+        .transfer-header {
+            background: #f2f2f2;
+            height: 36px;
+            line-height: 36px;
+            padding-left: 20px;
+            border-bottom: 1px solid rgb(209, 219, 229);
+            
+            &.transfer-bottom {
+                border-bottom: 0;
+                border-top: 1px solid rgb(209, 219, 229);
+            }
+        }
+        & .transfer-input {
+            display: block;
+            margin: 5px auto;
+            width: 90%;
+        }
+        .transfer-content {
+            height: 260px;
+            overflow: auto;
+            padding: 5px 0;
+            & p {
+                text-align: center;
+                margin-top: 5px;
+            }
+            // &.is-search {
+            //     margin-top: 25px;
+            // }
+            .transfer-check-group {
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                border-radius: 0;
+                .transfer-check.sc-checkbox.is-vertical {
+                    padding: 10px 20px;
+                    margin: 0;
+                    &:hover {
+                        background: #eee;
+                    }
+                }
+            }
+        } 
+    }
+
+    .transfer-btn {
+        display: inline-block;
+        margin: 0 5px;
+        & .sc-button {
+            display: block;
+            margin-bottom: 5px;
+            padding: 1px 12px;
+        }
+    }
+}

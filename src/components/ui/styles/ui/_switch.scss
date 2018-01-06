@@ -1,0 +1,75 @@
+.sc-switch {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    min-width: 46px;
+    height: 22px;
+    line-height: 20px;
+    border-radius: 12px;
+    vertical-align: middle;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 14px;
+    color: $colorWhite;
+
+    & input {
+        background: transparent;
+        outline: none;
+        display: inline-block;
+        position: absolute;
+        @include compatible(appearance,none);
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+        z-index: 2;
+    }
+
+    &.is-disabled input {
+        cursor: not-allowed; 
+    }
+
+    & .ball {
+        top: 50%;
+        left: 2px;
+        @include compatible(transform,translate(0,-50%));
+        @include compatible(transition,all 0.4s);
+        cursor: pointer;
+        display: inline-block;
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        background: $colorWhite;
+    }
+
+    &.is-checked .ball {
+        left: calc(100% - 19px);
+    }
+
+    & .off {
+        @include compatible(transition,opacity 0.3s);
+        @include compatible(user-select,none);
+        display: inline-block;
+        position: absolute;
+        opacity: 1;
+        right: 7px;
+    }
+
+    & .on {
+        @include compatible(transition,opacity 0.3s);
+        @include compatible(user-select,none);
+        display: inline-block;
+        position: absolute;
+        opacity: 0;
+        left: 7px;
+    }
+
+    &.is-checked .on {
+       opacity: 1;
+    }
+
+    &.is-checked .off {
+        opacity: 0;
+    }
+}

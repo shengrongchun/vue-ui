@@ -1,0 +1,51 @@
+@mixin compatible($key,$value) {
+    #{$key}: $value;
+    -ms-#{$key}: $value; /* Internet Explorer */
+    -moz-#{$key}: $value; /* Firefox */
+    -webkit-#{$key}: $value; /* Safari 和 Chrome */
+    -o-#{$key}: $value; /* Opera */
+}
+@mixin keyframes($name) {
+    @-moz-keyframes #{$name} { @content; }
+    @-webkit-keyframes #{$name} { @content; }
+    @-o-keyframes #{$name} { @content; }
+    @-ms-keyframes #{$name} { @content; }
+    @keyframes #{$name} { @content; }
+}
+
+
+/*progress*/
+@include keyframes(progress-bar-stripes) {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+//
+
+/*滚动条样式*/
+@mixin customScroll($className) {
+    #{$className}::-webkit-scrollbar {
+       width: 2px;
+    }
+    #{$className}::-webkit-scrollbar-track {
+       background: transparent;
+    }
+    #{$className}::-webkit-scrollbar-thumb {
+       background: $primary-color;
+       border-radius: 4px;
+    }
+}
+@mixin customScrollNo($className) {
+    #{$className}::-webkit-scrollbar {
+       width: 2px;
+    }
+    #{$className}::-webkit-scrollbar-track {
+       background: transparent;
+    }
+    #{$className}::-webkit-scrollbar-thumb {
+       background: transparent;
+    }
+}

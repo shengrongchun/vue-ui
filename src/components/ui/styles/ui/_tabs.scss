@@ -1,0 +1,89 @@
+.sc-tabs {
+    //
+    & ul {
+        list-style: none;
+        border-bottom: 1px solid rgb(209, 219, 229);
+        
+        li {
+            cursor: pointer;
+            display: inline-block;
+            height: 42px;
+            line-height: 42px;
+            padding: 0 16px;
+            //box-sizing: border-box;
+            font-size: 14px;
+            position: relative;
+            color: rgb(131, 145, 165);
+            border-bottom: 0 solid $primary-color;
+            
+            &.is-active {
+                color: $primary-color;
+                border-bottom-width: 2px;
+                margin-bottom: -2px;
+            }
+            &:hover:not(.is-disabled,.is-active) {
+                color: #000;
+            }
+
+            &.is-disabled {
+                color: #eee;
+                cursor: not-allowed;
+            } 
+        }
+    }
+
+    /*typeOne*/
+    &.tabOne {
+        ul li {
+            &.is-active {
+                margin-bottom: -1px;
+                border: 1px solid rgb(209, 219, 229);
+                border-radius: 4px 4px 0 0;
+                border-bottom-color: #fff;
+            }
+        }
+    }
+    /*typeTwo*/
+    &.tabTwo {
+        border: 1px solid rgb(209, 219, 229);
+        background: $colorWhite;
+        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.12), 0px 0px 6px 0px rgba(0,0,0,0.04);
+        
+        ul {
+            background: rgb(238, 241, 246);
+            li.is-active {
+                background: $colorWhite;
+                margin-bottom: -1px;
+                border: 1px solid rgb(209, 219, 229);
+                border-bottom-color: $colorWhite;
+                border-top-width: 0;
+                &:first-child {
+                    border-left-width: 0;
+                }
+            }
+            li.is-disabled {
+                color: #ccc;
+            } 
+        }
+    }
+
+    /*tabThree*/
+    &.tabThree {
+        ul {
+            //
+            border:none;
+            li {background: rgb(238, 241, 246);}
+            li:not(:first-child) {margin-left:2px;}
+            li.is-active {
+                border: none;
+                color: $colorWhite;
+                background: $primary-color;
+            }
+        }
+    }
+
+    .sc-tabs-content {
+        padding: 15px;
+        color: #000;
+    }
+}

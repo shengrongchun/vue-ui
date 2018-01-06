@@ -1,0 +1,87 @@
+@mixin radio {
+    .sc-radio-input {
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: middle;
+        height: 18px;
+        width: 18px; 
+        margin-right: 5px;
+        
+        &::after {
+            cursor: pointer;
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: $colorWhite;
+            position: absolute;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            transition: transform .2s cubic-bezier(.71,-.46,.88,.6);
+        }
+        & input {
+            transition: all 0.5s;
+            margin: 0;
+            user-select: none;
+            -webkit-appearance: none;
+            white-space: nowrap;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            background: $colorWhite;
+            border: 1px solid #E0E6ED;
+            border-radius: 50%;
+            outline: none;
+            line-height: 1;
+            
+            &:hover {
+                border-color: $radio-checked-border;
+            }
+        }
+         
+    }
+    .sc-radio-content {
+        display: inline-block;
+        font-size: $radio-fontsize;
+        padding-left: 5px;
+    } 
+}
+
+.sc-radio {
+    display: inline-block;
+    & + .sc-radio {
+      margin-left: 15px;
+    }
+
+    @include radio;
+    /*选中*/
+    &.is-checked .sc-radio-input {
+        &::after {
+            transform: translate(-50%,-50%) scale(1);
+        }
+        & input {
+            border-color: $radio-checked-border;
+            background: $radio-checked-bg; 
+        }
+        
+    }
+    /*禁用*/
+    &.is-disabled  {
+        .sc-radio-input {
+            &::after {
+                cursor: not-allowed; 
+            }
+            & input {
+                cursor: not-allowed;
+                border-color: $radio-disabled-border;
+                background: $radio-disabled-bg;
+            }
+        }
+        &.is-checked input {
+            background : $radio-disabled-border;
+        }
+          
+    }    
+}

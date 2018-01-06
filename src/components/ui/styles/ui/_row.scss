@@ -1,0 +1,39 @@
+.sc-row {
+    position: relative;
+    box-sizing: border-box;
+}
+
+@mixin flex {
+    display: flex;
+    -webkit-display: flex;
+    
+    &:before,
+    &:after {
+        display: none;
+    }
+}
+
+.justify-start {
+    @include flex;
+    justify-content: flex-start;
+}
+
+.justify-end {
+    @include flex;
+    justify-content: flex-end;
+}
+
+.justify-center {
+    @include flex;
+    justify-content: center;
+}
+
+.justify-space-between {
+    @include flex;
+    justify-content: space-between;
+}
+
+.justify-space-around {
+    @include flex;
+    justify-content: space-around;
+}

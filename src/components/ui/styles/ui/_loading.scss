@@ -1,0 +1,208 @@
+.sc-loading {
+    position: absolute;
+    display: inline-block;
+    background: rgba(255,255,255,0.9);
+    opacity: 0;
+    z-index: -999;
+    @include compatible(transition,opacity 0.5s);
+    &.is-visible {opacity: 1;z-index: 999;}
+
+    .loading-wrap {
+        width: 50px;
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        
+        @include compatible(transform,translate(-50%,-50%));
+
+        &.loading-wrap-lg {
+            width: 80px;
+        }
+
+        &.loading-wrap-xl {
+            width: 100px;
+        }
+
+        &.loading-wrap-sm {
+            width: 30px;
+        }
+
+        &.loading-wrap-xs {
+            width: 18px;
+        }
+
+        & > svg {
+            display: block;
+        }
+
+        /* Circular */
+        .loading-circular, .loading-circular-wider {
+            @include compatible(animation, loading-circular-rotate 1.5s linear infinite);
+
+            .loading-circular-path {
+                @include compatible(animation, loading-circular-path 1.5s ease-in-out infinite);
+
+                stroke-width: 2px;
+                stroke-linecap: round;
+                fill: none;
+            }
+
+            &.loading-circular-wider .loading-circular-path {
+                stroke-width: 5px;
+            }
+        }
+
+        @include keyframes('loading-circular-rotate') {
+            100% {
+                @include compatible(transform, rotate(360deg));
+            }
+        }
+
+        @include keyframes('loading-circular-path') {
+            0% {
+                stroke-dasharray: 1,200;
+                stroke-dashoffset: 0;
+            }
+
+            50% {
+                stroke-dasharray: 89,200;
+                stroke-dashoffset: -35px;
+            }
+
+            100% {
+                stroke-dasharray: 89,200;
+                stroke-dashoffset: -124px;
+            }
+        }
+
+        /* Ball Pulse */
+        .loading-ball-pulse {
+            .loading-ball-pulse-path {
+
+            }
+            .loading-ball-pulse-path:nth-child(1) {
+                @include compatible(animation, loading-ball-pulse-scale 1s 0.2s infinite);
+            }
+            .loading-ball-pulse-path:nth-child(2) {
+                @include compatible(animation, loading-ball-pulse-scale 1s 0.4s infinite);
+            }
+            .loading-ball-pulse-path:nth-child(3) {
+                @include compatible(animation, loading-ball-pulse-scale 1s 0.6s infinite);
+            }
+        }
+
+        @include keyframes('loading-ball-pulse-scale') {
+            0%, 80%, 100% {
+                r: 10;
+                opacity: 1;
+            }
+
+            40% {
+                r: 2;
+                opacity: .7;
+            }
+        }
+
+        /* Circular2 */
+        .loading-circular2 {
+            @include compatible(animation, loading-circular-rotate 1.2s linear infinite);
+
+            .loading-circular2-path {
+                opacity: 0.3;
+                stroke-width: 3px;
+                stroke-linecap: round;
+                fill: none;
+            }
+
+            .loading-circular2-path2 {
+                stroke-width: 3px;
+                stroke-linecap: round;
+                fill: none;
+                stroke-dasharray: 6,200;
+            }
+        }
+
+        /* Spin */
+        .loading-spin {
+            .loading-spin-path {
+                
+            }
+            .loading-spin-path:nth-child(1) {
+                @include compatible(animation, loading-spin-scale 1s 0s infinite);
+            }
+            .loading-spin-path:nth-child(2) {
+                @include compatible(animation, loading-spin-scale 1s 0.12s infinite);
+            }
+            .loading-spin-path:nth-child(3) {
+                @include compatible(animation, loading-spin-scale 1s 0.24s infinite);
+            }
+            .loading-spin-path:nth-child(4) {
+                @include compatible(animation, loading-spin-scale 1s 0.36s infinite);
+            }
+            .loading-spin-path:nth-child(5) {
+                @include compatible(animation, loading-spin-scale 1s 0.48s infinite);
+            }
+            .loading-spin-path:nth-child(6) {
+                @include compatible(animation, loading-spin-scale 1s 0.6s infinite);
+            }
+            .loading-spin-path:nth-child(7) {
+                @include compatible(animation, loading-spin-scale 1s 0.72s infinite);
+            }
+            .loading-spin-path:nth-child(8) {
+                @include compatible(animation, loading-spin-scale 1s 0.84s infinite);
+            }
+        }
+
+        @include keyframes('loading-spin-scale') {
+            0%, 80%, 100% {
+                r: 2;
+                opacity: .1;
+            }
+
+            40% {
+                r: 4;
+                opacity: .7;
+            }
+        }
+
+
+        /* Line Scale */
+        .loading-line-scale {
+            .loading-line-scale-path {
+                height: 30px;
+                width: 6px;
+                y: 0;
+            }
+            .loading-line-scale-path:nth-child(1) {
+                @include compatible(animation, loading-line-scale-scale 1s 0.2s infinite);
+            }
+            .loading-line-scale-path:nth-child(2) {
+                @include compatible(animation, loading-line-scale-scale 1s 0.4s infinite);
+            }
+            .loading-line-scale-path:nth-child(3) {
+                @include compatible(animation, loading-line-scale-scale 1s 0.6s infinite);
+            }
+            .loading-line-scale-path:nth-child(4) {
+                @include compatible(animation, loading-line-scale-scale 1s 0.8s infinite);
+            }
+            .loading-line-scale-path:nth-child(5) {
+                @include compatible(animation, loading-line-scale-scale 1s 1s infinite);
+            }
+        }
+
+        @include keyframes('loading-line-scale-scale') {
+            0%, 80%, 100% {
+                height: 30px;
+                y: 0;
+                opacity: 1;
+            }
+
+            40% {
+                height: 10px;
+                y: 10px;
+                opacity: .5;
+            }
+        }
+    }
+}

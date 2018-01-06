@@ -1,0 +1,90 @@
+
+.sc-checkbox {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    user-select: none;
+    color: $checkbox-color;
+    font-size: $checkbox-fontsize;
+    margin-right: 5px;
+    &.is-vertical {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input {
+        outline: none;
+        white-space: nowrap;
+        cursor: pointer;
+        line-height: 1;
+        position: relative;
+    } 
+
+    .sc-checkbox-input {
+        @include compatible(appearance,none);
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        box-sizing: border-box;
+        width: 18px;
+        height: 18px;
+        background: $checkbox-bg;
+        border: 1px solid $checkbox-border;
+        border-radius: $checkbox-border-radius;
+        @include compatible(transition,all .15s);
+        margin-right: 5px;
+        
+        &::after {
+            box-sizing: content-box;
+            content: "";
+            border: 2px solid #fff;
+            border-left: 0;
+            border-top: 0;
+            border-bottom: 0;
+            height: 8px;
+            left: 5px;
+            position: absolute;
+            top: 1px;
+            width: 4px;
+            @include compatible(transform,rotate(45deg) scale(0));
+            @include compatible(transition,transform .15s);
+            @include compatible(transform-origin,center);
+        }    
+    }
+    .sc-checkbox-label {
+        display: inline-block;
+    }
+    &.is-checked .sc-checkbox-input {
+        background: $checkbox-check-bg;
+        border-color: $checkbox-check-border;
+        &::after {
+            border: 2px solid #fff;
+            border-left: 0;
+            border-top: 0;
+            @include compatible(transform,rotate(45deg) scale(1));
+        } 
+    }
+    &.is-checkAll .sc-checkbox-input {
+        background: $checkbox-check-bg;
+        border-color: $checkbox-check-border;
+        &::after {
+            border-bottom: 0;
+            @include compatible(transform,rotate(90deg) scale(1));
+        } 
+    }
+
+    &.is-disabled {
+        color: #bbb;
+        cursor: not-allowed;
+        
+        .sc-checkbox-input {
+            cursor: inherit;
+            background: $checkbox-disabled-bg;
+            border-color: $checkbox-disabled-border;
+        }
+    }
+
+
+
+}

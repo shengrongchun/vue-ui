@@ -1,0 +1,98 @@
+.sc-menu {
+    //
+    li {list-style: none;}
+    width: auto;
+    background: rgb(238, 241, 246);
+    padding-bottom: 60px;
+    //
+    .sc-menu-item {
+        height: 56px;
+        overflow: hidden;
+        @include compatible(transition, height 0.3s);
+
+        &.is-open {
+            > .item-header {
+                background: rgb(209, 219, 229);
+                .menu-header-icon-right {
+                    @include compatible(transform, rotate(180deg));
+                }
+            }
+        }
+        &.is-active {
+            > .item-header {color:$primary-color;}
+        }
+        > .item-header {
+            &:hover {background:rgb(209, 219, 229);}
+
+            position: relative;
+            cursor: pointer;
+            padding: 0 20px;
+            height: 56px;
+            line-height: 56px;
+            color: rgb(72, 87, 106);
+            font-size: 14px;
+            @include compatible(user-select, none);
+            
+            .menu-header-icon-left {
+                margin-right: 5px;
+                font-size: 16px;
+                width: 22px;
+                text-align: center;
+            }
+
+            .menu-header-icon-right {
+                @include compatible(transition, transform 0.3s);
+                position: absolute;
+                top: 17px;
+                right: 20px;
+            } 
+        }
+
+        > .item-content {
+            
+        }   
+    }
+    //
+    .sc-menu-item-group {
+        .sc-menu-item-group-title {
+            padding-top: 15px;
+            padding-left: 20px;
+            padding-bottom: 5px;
+            color: rgb(151, 168, 190);
+            font-size: 14px;
+            @include compatible(user-select,none);
+        }
+       .sc-menu-item {
+            @extend .sc-menu-item;
+            > .item-header {
+                padding: 0 30px;
+            }
+       }
+    }
+
+    /*dark*/
+    &.is-dark {
+        background: rgb(50, 65, 87);
+        .sc-menu-item {
+            .item-header {
+                color: rgb(191, 203, 217);
+                &:hover {
+                    background: rgb(72, 87, 106);
+                }
+            }
+            //
+            &.is-active {
+                > .item-header {color:$primary-color;}
+            }
+            //
+            &.is-open {
+                > .item-header {background: rgb(72, 87, 106);}
+            }
+
+        }
+    }
+
+
+
+
+}

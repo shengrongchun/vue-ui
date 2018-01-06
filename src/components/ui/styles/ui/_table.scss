@@ -1,0 +1,88 @@
+.sc-table {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    background: rgb(238, 241, 246);
+    color: rgb(31, 45, 61);
+    font-size: 14px;
+    border: 1px solid rgb(223, 230, 236);
+    overflow: hidden;
+    box-sizing: border-box;
+    
+    &.is-border {
+        td:not(:last-child) {
+            border-right: 1px solid rgb(223, 230, 236);
+        }
+    }
+    &.is-small {
+        td {
+            padding: 0 18px;
+        }
+    }
+    & table tbody {
+        display: block;
+        overflow: auto;
+        background: $colorWhite;
+    }
+    table thead.showScroll {
+        width: calc( 100% - 17px );
+    }
+    table thead, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;
+    }
+    td {
+        line-height: 30px;
+        text-align: left;
+        padding: 5px 18px;
+        text-overflow: ellipsis; 
+    }
+
+    thead tr {
+        background: rgb(238, 241, 246);
+        td {
+            color: rgb(31, 45, 61);
+            font-weight: 800;
+            font-size: 14px;
+        }
+    }
+
+    tbody tr {
+        &:hover {
+            background: rgb(238, 241, 246);
+        }
+        &.is-stripe:nth-child(even) {
+            background: #fafafa;
+            &:hover {
+                background: rgb(238, 241, 246);
+            }
+        }
+        td {
+            border-top: 1px solid rgb(223, 230, 236);
+            font-size: 14px;
+        }
+    }
+
+
+    .sc-table-column {
+        .sc-table-sort {
+            display: inline-block;
+            position: relative;
+            .sort-icon-up {
+                &.is-active {color: #ccc;}
+                cursor: pointer;
+                @include compatible(transform,rotate(90deg));
+                position: absolute;
+                top: -16px;
+            }
+            .sort-icon-down {
+                &.is-active {color: #ccc;}
+                cursor: pointer;
+                @include compatible(transform,rotate(90deg));
+                position: absolute;
+                top: -8px;
+            }
+        }
+    }
+}

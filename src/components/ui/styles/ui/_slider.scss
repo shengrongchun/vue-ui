@@ -1,0 +1,78 @@
+.sc-slider {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: $slider-height;
+    background: $slider-bg-color;
+    cursor: pointer;
+    border-radius: $slider-border-radius;
+    vertical-align: middle;
+    margin: 16px 0;
+    
+    &.is-disabled { 
+        cursor: default;
+        .sc-slider-check {
+            background: $slider-dis-bg-color;
+            cursor: inherit;
+        }
+        .sc-slider-scroll {
+            background: $slider-dis-bg-color;
+            cursor: not-allowed;
+            &.is-dragging {
+                @include compatible(transform,scale(1));
+            }
+        }
+    }
+    .sc-slider-check {
+        display: inherit;
+        position: absolute;
+        left: 0%;
+        height: 100%;
+        width: 0%;
+        background: $slider-bg-content-color;
+        border-top-left-radius: $slider-border-radius;
+        border-bottom-left-radius: $slider-border-radius;
+    }
+
+    .sc-slider-scroll {
+        display: inherit;
+        position: absolute;
+        background: $slider-bg-content-color;
+        width: $slider-scroll-height;
+        height: $slider-scroll-height;
+        border-radius: 50%;
+        top: $slider-scroll-top;
+        left: 0%;
+        @include compatible(transition,transform 0.3s);
+        //z-index: 1;
+        cursor: -webkit-grab;
+        cursor: grab;
+        transform-origin: center;
+        
+        &.is-dragging {
+            @include compatible(transform,scale(1.2));
+        }
+    }
+
+    //竖着
+    &.is-vertical {
+        height: $slider-vertical-height;
+        width: $slider-height;
+        margin: 0;
+        .sc-slider-check {
+            top: 0%;
+            width: 100%;
+            height: 0%;
+            border-top-right-radius: $slider-border-radius;
+            border-bottom-left-radius: 0;
+        }
+
+        .sc-slider-scroll {
+            left: $slider-scroll-top;
+            top: 0%;
+        }
+
+
+
+    }
+}

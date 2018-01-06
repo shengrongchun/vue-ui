@@ -1,0 +1,96 @@
+$carousel-bg-color: #eee;
+
+.sc-carouselgroup {
+    position: relative;
+    width: auto;
+    height: 500px;
+    background: $carousel-bg-color;
+    overflow: hidden;
+    text-align: center;
+    
+    .carouselBtnLeft {
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        z-index: 2;
+        opacity: 0;
+        @include compatible(transform,translateY(-50%));
+        @include compatible(transition,all 0.2s);
+        
+        i {
+            font-size: 40px;
+            color: rgba(31, 45, 61, 0.3);
+            cursor: pointer;
+            &:hover {
+                color: rgba(31, 45, 61, 0.6);
+            }
+        }
+    }
+    .carouselBtnRight {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        z-index: 2;
+        opacity: 0;
+        @include compatible(transform,translateY(-50%));
+        @include compatible(transition,all 0.2s);
+        
+        i {
+            font-size: 40px;
+            color: rgba(31, 45, 61, 0.3);
+            cursor: pointer;
+            &:hover {
+                color: rgba(31, 45, 61, 0.6);
+            }
+        }
+    }
+    .carouselBtnCircle {
+        z-index: 2;
+        position: absolute;
+        left: 50%;
+        bottom: 10%;
+        @include compatible(transform,translateX(-50%));
+        
+        & span {
+            cursor: pointer;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border:1px solid #eee;
+            margin-left: 2px;
+            background: transparent;
+            
+            &.is-checked {
+                background: #eee;
+            }
+        }  
+    }
+    .sc-carousel {
+        @include compatible(transition,left 0.5s);
+        display: inline-block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: $colorWhite;
+        left: 0;
+        text-align: center;
+        
+        & .carousel-title {
+            position: absolute;
+            color: #eee;
+            bottom: 18%;
+            font-size: 16px;
+            @include compatible(transform,translateX(-50%));
+        }
+
+        &.is-card {
+            @include compatible(transition,all 0.6s);
+        }
+    }
+
+    &:hover {
+       .carouselBtnLeft {opacity:1;left:10px;} 
+       .carouselBtnRight {opacity:1;right:10px;}
+    }
+}

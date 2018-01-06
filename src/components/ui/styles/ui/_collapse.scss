@@ -1,0 +1,72 @@
+.sc-collapse-group {
+    border: 1px solid $collapse-border-color;
+    border-radius: 4px;
+    
+    .sc-collapse {
+        overflow: hidden;
+        height: 44px;
+        &:first-child {border-radius: 4px 4px 0 0;}
+        @include compatible(transition,height 0.5s);
+        
+        &.is-open {
+            header i {
+                @include compatible(transform,rotate(90deg));
+            }
+        }
+        /*primary*/
+        &.primary.is-open {
+            header {
+                background: $primary-color;
+                color: $colorWhite;
+            }
+        }
+        /*success*/
+        &.success.is-open {
+            header {
+                background: $success-color;
+                color: $colorWhite;
+            }
+        }
+        /*info*/
+        &.info.is-open {
+            header {
+                background: $info-color;
+                color: $colorWhite;
+            }
+        }
+        /*warning*/
+        &.warning.is-open {
+            header {
+                background: $warning-color;
+                color: $colorWhite;
+            }
+        }
+
+        header {
+            @include compatible(user-select,none);
+            cursor: pointer;
+            height: 43px;
+            line-height: 43px;
+            padding-left: 15px;
+            border-bottom: 1px solid $collapse-border-color;
+            color: rgb(72, 87, 106);
+            position: relative;
+            
+            i {
+                font-size: 22px;
+                position: absolute;
+                right: 15px;
+                top: 10px;
+                @include compatible(transition,transform 0.3s);
+            }
+        }
+
+        .sc-collapse-content {
+            line-height: 1.3;
+            background: $collapse-content-bg;
+            padding: 10px 15px;
+            border-bottom: 1px solid $collapse-border-color;
+            color: $colorBlack;
+        }
+    }
+}

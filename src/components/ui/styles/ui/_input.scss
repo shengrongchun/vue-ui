@@ -1,0 +1,173 @@
+@mixin common {
+    appearance: none;
+    background-color: $input-bg;
+    background-image: none;
+    border: 1px solid $input-border-color;
+    box-sizing: border-box;
+    color: $input-color;
+    display: inline-block;
+    font-size: inherit;
+    height: $input-height;
+    border-radius: $input-border-radius;
+    line-height: 1;
+    outline: none;
+    padding: 3px 10px;
+    transition: all 0.15s;
+}
+@mixin input-inner {
+    @include common;
+    width: 100%;
+    
+    &::placeholder {
+        color: $input-placeholder-color;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $input-focus-border-color;
+    }
+}
+
+.sc-input {
+    position: relative;
+    font-size: $input-fontsize;
+    display: inline-block;
+    width: 100%;
+    & .sc-input-single {position: relative;width: 100%;}
+    & .sc-input-single .icon {
+        position: absolute;
+        width: 35px;
+        height: 100%;
+        border-radius: 0 4px 4px 0;
+        top: 2px;
+        right: 0;
+        color: $input-border-color;
+        text-align: center;
+        cursor: pointer;
+        
+        &:after {
+            content: '';
+            height: 100%;
+            width: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            color: $button-primary-border;
+        }
+    }
+    &.is-disabled .icon {
+        color: $input-disabled-color;
+        cursor: not-allowed;
+        &:hover {
+            color: $input-disabled-color;
+        }
+    }
+
+    & .sc-input_inner {
+        @include input-inner;
+    }
+    &:hover .sc-input_inner {
+        border-color: $input-hover-border-color;
+    }
+    &.is-disabled .sc-input_inner {
+        background-color: $input-disabled-bg;
+        border-color: $input-disabled-border-color;
+        color: $input-disabled-color;
+        cursor: not-allowed;
+
+        &::placeholder {
+            color: $input-disabled-placeholder-color;
+        }
+    }
+
+    &.sc-size-lg .sc-input_inner {
+        height: $input-lg-height;
+    }
+    &.sc-size-sm .sc-input_inner {
+        height: $input-sm-height;
+    }
+    &.sc-size-mi .sc-input_inner {
+        height: $input-mi-height;
+    }
+}
+
+.sc-input-group {
+    display: inline-flex;
+    width: 100%;
+    &.sc-size-lg > span {
+        height: $input-lg-height;
+    }
+    &.sc-size-sm > span {
+        height: $input-sm-height;
+    }
+    &.sc-size-mi > span {
+        height: $input-mi-height;
+    }
+
+    > span {
+        > span {display:inline-block;}
+        @include common;
+        cursor: pointer;
+        background: $input-group-bg;
+        text-align: center;
+        color: $input-disabled-color;
+        &::after {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        } 
+    }
+    &.sc-input-group-before {
+        .sc-input_inner {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }  
+    }
+    &.sc-input-group-after {
+        .sc-input_inner {
+            z-index: 2;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }  
+    }
+    & .sc-input-group_before {
+        margin-right: -1px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    & .sc-input-group_after {
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;  
+    }
+}
+
+.sc-textarea {
+    position: relative;
+    font-size: $input-fontsize;
+    display: inline-block;
+    
+    .sc-textarea_inner {
+        @include input-inner;
+        width: $textarea-width;
+        min-height: $textarea-min-height;
+        
+        &:hover {
+            border-color: $input-hover-border-color;
+        }
+    }
+
+    &.is-disabled .sc-textarea_inner {
+        background-color: $input-disabled-bg;
+        border-color: $input-disabled-border-color;
+        color: $input-disabled-color;
+        cursor: not-allowed;
+
+        &::placeholder {
+            color: $input-disabled-placeholder-color;
+        }
+    }
+}

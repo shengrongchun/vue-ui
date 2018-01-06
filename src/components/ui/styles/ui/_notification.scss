@@ -1,0 +1,68 @@
+.sc-notification {
+    width: 100%;
+    padding: 10px 14px 10px 20px;
+    margin: 0;
+    position: relative;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: $colorWhite;
+    overflow: hidden;
+    opacity: 0;
+    @include compatible(transition,all 0.5s);
+    
+    &.instance {
+        z-index: 9999;
+        position: fixed;
+        box-shadow: $notification-box-shadow;
+        border-radius: 0;
+        
+        &:hover {
+            //opacity: 0.9;
+        }
+    }
+
+    &.is-show {
+        opacity: 1;
+    }
+    
+    &.info {
+        background: $notification-info-color;
+    }
+    &.success {
+        background: $notification-success-color;
+    }
+    &.warning {
+        background: $notification-warning-color;
+    }
+    &.primary {
+        background: $notification-primary-color;
+    }
+    &.danger {
+        background: $notification-danger-color;
+    }
+    
+    & .header {
+        position: relative;
+        span.title {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;  
+        }
+        span.close {
+            position: absolute;
+            display: inline-block;
+            font-size: 16px;
+            right: 0;
+            cursor: pointer;
+        
+        }
+    }
+
+    & .content {
+        margin-top: 5px;
+        padding-top: 10px;
+        font-size: 12px;
+        border-top: 1px solid $notification-content-border-top-color;
+    }
+    
+}

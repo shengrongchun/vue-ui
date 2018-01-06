@@ -1,0 +1,50 @@
+.sc-form {
+    font-size: 14px;
+    
+    .sc-form-item {
+        margin-bottom: 23px;
+        &.is-inline {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .form-title {
+            box-sizing: border-box;
+            line-height: 24px;
+            float: left;
+            text-align: left;
+            display: inline-block;
+            padding: 5px 10px 5px 0;
+            color: rgb(72, 87, 106);
+            .form-required-icon {
+                color: $danger-color;
+                display: inline-block;
+                padding-right: 3px;
+            }
+            &.top {
+                float: none;
+            }
+            &.right {
+                text-align: right;
+            }
+        }
+        .form-content {
+            position: relative;
+            .form-error-tip {
+                display: inline-block;
+                padding-top: 3px;
+                color: $danger-color;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                font-size: 12px;
+                line-height:1;
+                @include compatible(transition, all 0.2s);
+                @include compatible(transform-origin, center top);
+                @include compatible(transform,scaleY(0));
+                &.is-show {
+                    @include compatible(transform,scaleY(1));
+                }
+            }
+        }
+    }
+}

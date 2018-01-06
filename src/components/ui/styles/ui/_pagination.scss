@@ -1,0 +1,61 @@
+.sc-pagination {
+    display:inline-block;
+    vertical-align: middle;
+    .totalClass {
+        font-size: 13px;
+        margin: 0 5px;
+        vertical-align: middle;
+        .sc-input {
+            margin: 0 5px;
+            width: 30px;
+            .sc-input_inner {
+                height: 30px;
+                padding: 0;
+                text-align: center;
+                line-height: 30px;
+            }
+        }
+    }
+    ul.sc-page-main {
+        list-style:none;
+        display: inline-block;
+        vertical-align: middle;
+        
+        & li {
+            &.is-disabled {cursor:not-allowed}
+            @include compatible(user-select,none);
+            float: left;
+            padding: 0 4px;
+            margin: 0;
+            border: 1px solid rgb(209, 219, 229);
+            &:not(:last-child) {
+                border-right: 0;
+            }
+            &:hover {color: $primary-color;}
+            box-sizing: border-box;
+            cursor: pointer;
+            background: $colorWhite;
+            height: 28px;
+            min-width: 28px;
+            line-height: 30px;
+            text-align: center;
+            &.page {
+                line-height: 28px;
+                &.is-active {
+                    background: $primary-color;
+                    color: $colorWhite;
+                    border-color: $primary-color;
+                }
+            }
+            /*more color*/
+            &.more:not(:hover) {color:#ccc} 
+        }
+
+
+
+
+
+
+    }
+
+}
