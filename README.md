@@ -18,5 +18,5 @@ npm run build
 npm run build --report
 
 ```
-[演示地址](http://src.5awo.com:8000) 用户名：sheng, 密码：123
+[演示地址](http://120.55.46.128:8000) 用户名：sheng, 密码：123。
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
